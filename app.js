@@ -58,7 +58,7 @@ function startPromiseChain(edge) {
       edge: edge.edge,
       odds: edge.odds,
       oddsType: edge.oddsType,
-      oddsTypeCondition: edge.oddsTypeCondition,
+      oddsTypeCondition: edge.oddsTypeCondition || 0,
       offer: edge.offer,
       output: edge.output,
       sportId: edge.sportId,
