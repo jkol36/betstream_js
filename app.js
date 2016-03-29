@@ -1,4 +1,4 @@
-import { headers, BASE_URL, firebaseRef, BOVADA_USERNAME, BOVADA_PASSWORD, initializeDatabase } from './config'
+import { headers, BASE_URL, firebaseRef, BOVADA_USERNAME, BOVADA_PASSWORD, initializeDatabase, EDGEBET_USER_ID } from './config'
 import fetch from 'node-fetch'
 import placedBet from './models/placedBet'
 import { getLinkForMatch, queryForMatch, checker, ODDSTYPES, OUTCOMETYPES, validateData, placeBetOnBovada, authWithBovada, bovadaBalance, getEdges } from './helpers'
@@ -63,7 +63,7 @@ function startPromiseChain(edge) {
       output: edge.output,
       sportId: edge.sportId,
       currency: 'USD',
-      user: '6727921f-1c23-4397-b63c-1002745a3462',
+      user: EDGEBET_USER_ID,
       wager: stake / 100
     })
   })
