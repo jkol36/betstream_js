@@ -81,11 +81,7 @@ export function placeBetOnBovada(data, headers, cookies) {
 
   })
 }
-export function getEdges(callback) {
-    firebaseRef.child('edges').orderByChild('bookmaker/_id').equalTo(567).on('child_added', snap => {
-      callback(snap.val())
-    })
-}
+
 export function validateData(bovadaData, edgebet) {
   let gameLine = bovadaData.gamelines.itemList.filter(line => {
     let oddsType = ODDSTYPES[line.description.split(' ').join('').toLowerCase()]
