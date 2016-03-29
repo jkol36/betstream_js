@@ -1,0 +1,202 @@
+{
+  "430798121": {
+    "awayTeam": "Hapoel Jerusalem",
+    "baseline": 1.799,
+    "bookmaker": {
+      "_id": 567,
+      "name": "Bovada"
+    },
+    "competition": {
+      "_id": 300005,
+      "name": "Ligat Haal"
+    },
+    "country": "Israel",
+    "createdAt": 1459174085673,
+    "edge": 3.9,
+    "homeTeam": "Maccabi Haifa",
+    "kelly": 0.045363643914563094,
+    "matchId": 3551346,
+    "odds": 1.87,
+    "oddsType": 4,
+    "oddsTypeCondition": 152.5,
+    "offer": 430798121,
+    "output": "o1",
+    "sportId": 3,
+    "startTime": 1459188300000
+  },
+  "430886302": {
+    "awayTeam": "Trento",
+    "baseline": 1.877,
+    "bookmaker": {
+      "_id": 567,
+      "name": "Bovada"
+    },
+    "competition": {
+      "_id": 300018,
+      "name": "Eurocup"
+    },
+    "country": "European Cup",
+    "createdAt": 1459172066291,
+    "edge": 1.7,
+    "homeTeam": "Strasbourg",
+    "kelly": 0.01875520530209642,
+    "matchId": 3570453,
+    "odds": 1.909,
+    "oddsType": 4,
+    "oddsTypeCondition": 153.5,
+    "offer": 430886302,
+    "output": "o2",
+    "sportId": 3,
+    "startTime": 1459274400000
+  },
+  "430959355": {
+    "awayTeam": "Quilmes Mar Del Plata",
+    "baseline": 1.805,
+    "bookmaker": {
+      "_id": 567,
+      "name": "Bovada"
+    },
+    "competition": {
+      "_id": 300041,
+      "name": "Liga Nacional de Básquet"
+    },
+    "country": "Argentina",
+    "createdAt": 1459169066563,
+    "edge": 1.6,
+    "homeTeam": "Gimnasia y Esgrima (CR)",
+    "kelly": 0.018622407411718226,
+    "matchId": 3559503,
+    "odds": 1.833,
+    "oddsType": 3,
+    "oddsTypeCondition": -11.5,
+    "offer": 430959355,
+    "output": "o1",
+    "sportId": 3,
+    "startTime": 1459211400000
+  },
+  "430959359": {
+    "awayTeam": "San Martin Corrientes",
+    "baseline": 1.852,
+    "bookmaker": {
+      "_id": 567,
+      "name": "Bovada"
+    },
+    "competition": {
+      "_id": 300041,
+      "name": "Liga Nacional de Básquet"
+    },
+    "country": "Argentina",
+    "createdAt": 1459163606777,
+    "edge": 1,
+    "homeTeam": "Argentino Junin",
+    "kelly": 0.011171520071497729,
+    "matchId": 3559502,
+    "odds": 1.87,
+    "oddsType": 3,
+    "oddsTypeCondition": 1.5,
+    "offer": 430959359,
+    "output": "o1",
+    "sportId": 3,
+    "startTime": 1459211400000
+  },
+  "430959364": {
+    "awayTeam": "Juventud Sionista",
+    "baseline": 1.811,
+    "bookmaker": {
+      "_id": 567,
+      "name": "Bovada"
+    },
+    "competition": {
+      "_id": 300041,
+      "name": "Liga Nacional de Básquet"
+    },
+    "country": "Argentina",
+    "createdAt": 1459164077207,
+    "edge": 1.2,
+    "homeTeam": "Lanus",
+    "kelly": 0.014583414812639606,
+    "matchId": 3559501,
+    "odds": 1.833,
+    "oddsType": 3,
+    "oddsTypeCondition": -6.5,
+    "offer": 430959364,
+    "output": "o2",
+    "sportId": 3,
+    "startTime": 1459209600000
+  },
+  "431139635": {
+    "awayTeam": "New York Knicks",
+    "baseline": 1.874,
+    "bookmaker": {
+      "_id": 567,
+      "name": "Bovada"
+    },
+    "competition": {
+      "_id": 300013,
+      "name": "NBA"
+    },
+    "country": "NBA",
+    "createdAt": 1459180046948,
+    "edge": 1.9,
+    "homeTeam": "New Orleans Pelicans",
+    "kelly": 0.02054634492264591,
+    "matchId": 3290866,
+    "odds": 1.909,
+    "oddsType": 3,
+    "oddsTypeCondition": 4.5,
+    "offer": 431139635,
+    "output": "o2",
+    "sportId": 3,
+    "startTime": 1459209600000
+  },
+  "431139637": {
+    "awayTeam": "Sacramento Kings",
+    "baseline": 1.886,
+    "bookmaker": {
+      "_id": 567,
+      "name": "Bovada"
+    },
+    "competition": {
+      "_id": 300013,
+      "name": "NBA"
+    },
+    "country": "NBA",
+    "createdAt": 1459185795841,
+    "edge": 1.2,
+    "homeTeam": "Portland Trailblazers",
+    "kelly": 0.013415975743915927,
+    "matchId": 3290869,
+    "odds": 1.909,
+    "oddsType": 3,
+    "oddsTypeCondition": -10,
+    "offer": 431139637,
+    "output": "o2",
+    "sportId": 3,
+    "startTime": 1459216800000
+  },
+  "431153488": {
+    "awayTeam": "Brooklyn Nets",
+    "baseline": 1.882,
+    "bookmaker": {
+      "_id": 567,
+      "name": "Bovada"
+    },
+    "competition": {
+      "_id": 300013,
+      "name": "NBA"
+    },
+    "country": "NBA",
+    "createdAt": 1459179039626,
+    "edge": 1.4,
+    "homeTeam": "Miami Heat",
+    "kelly": 0.01578266221946335,
+    "matchId": 3290861,
+    "odds": 1.909,
+    "oddsType": 4,
+    "oddsTypeCondition": 212,
+    "offer": 431153488,
+    "output": "o1",
+    "sportId": 3,
+    "startTime": 1459207800000
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "betstream_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-register --timeout=10000",
+    "start": "node index"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "dotenv": "^2.0.0",
+    "jsonfile": "^2.2.3",
+    "mocha": "^2.4.5",
+    "superagent": "^1.7.2"
+  },
+  "dependencies": {
+    "aws-sign2": "^0.6.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-register": "^6.5.1",
+    "bl": "^1.1.2",
+    "bluebird": "^3.2.2",
+    "caseless": "^0.11.0",
+    "combined-stream": "^1.0.5",
+    "extend": "^3.0.0",
+    "firebase": "^2.4.0",
+    "forever-agent": "^0.6.1",
+    "form-data": "^1.0.0-rc4",
+    "har-validator": "^2.1.1",
+    "hawk": "^4.1.2",
+    "http-signature": "^1.1.1",
+    "is-typedarray": "^1.0.0",
+    "isstream": "^0.1.2",
+    "json-stringify-safe": "^5.0.1",
+    "mime-types": "^2.1.10",
+    "mongoose": "^4.4.3",
+    "node-fetch": "^1.3.3",
+    "node-uuid": "^1.4.7",
+    "oauth-sign": "^0.8.1",
+    "qs": "^6.1.0",
+    "redux": "^3.3.1",
+    "redux-thunk": "^1.0.3",
+    "request": "^2.69.0",
+    "stringstream": "0.0.5",
+    "tough-cookie": "^2.2.2",
+    "tunnel-agent": "^0.4.2",
+    "underscore": "^1.8.3"
+  },
+  "author": "Jon Kolman",
+  "license": "ISC"
+}

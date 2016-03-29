@@ -1,0 +1,2032 @@
+[
+  {
+    "gamelines": {
+      "description": "Game Lines",
+      "id": "97",
+      "link": "/basketball/rest-of-world/argentina/lnb/game-lines-market-group",
+      "defaultType": true,
+      "itemList": [
+        {
+          "description": "Point Spread",
+          "id": "29800192",
+          "type": "SPR",
+          "columns": "H2Columns",
+          "mainMarketType": "SPREAD",
+          "mainPeriod": true,
+          "marketTypeGroup": "SPREAD",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "San Martin Corrientes",
+              "id": "132040496",
+              "type": "A",
+              "competitorId": "2382232-32277",
+              "status": "OPEN",
+              "price": {
+                "id": "157209693",
+                "american": "-120",
+                "decimal": "1.833333",
+                "fractional": "5/6",
+                "handicap": "0.5",
+                "outcomeId": "132040496"
+              }
+            },
+            {
+              "description": "Argentino Junin",
+              "id": "132040497",
+              "type": "H",
+              "competitorId": "2382232-10893",
+              "status": "OPEN",
+              "price": {
+                "id": "157209694",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "handicap": "-0.5",
+                "outcomeId": "132040497"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Moneyline",
+          "id": "29800193",
+          "type": "WW",
+          "columns": "H2Columns",
+          "mainMarketType": "MONEYLINE",
+          "mainPeriod": true,
+          "marketTypeGroup": "MONEY_LINE",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "San Martin Corrientes",
+              "id": "132040492",
+              "type": "A",
+              "competitorId": "2382232-32277",
+              "status": "OPEN",
+              "price": {
+                "id": "157209253",
+                "american": "-120",
+                "decimal": "1.833333",
+                "fractional": "5/6",
+                "outcomeId": "132040492"
+              }
+            },
+            {
+              "description": "Argentino Junin",
+              "id": "132040493",
+              "type": "H",
+              "competitorId": "2382232-10893",
+              "status": "OPEN",
+              "price": {
+                "id": "157209252",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "outcomeId": "132040493"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total",
+          "id": "29800194",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "mainMarketType": "TOTAL",
+          "mainPeriod": true,
+          "marketTypeGroup": "TOTALS",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Over",
+              "id": "132040494",
+              "type": "O",
+              "status": "OPEN",
+              "price": {
+                "id": "157210465",
+                "american": "-120",
+                "decimal": "1.833333",
+                "fractional": "5/6",
+                "handicap": "160.5",
+                "outcomeId": "132040494"
+              }
+            },
+            {
+              "description": "Under",
+              "id": "132040495",
+              "type": "U",
+              "status": "OPEN",
+              "price": {
+                "id": "157210464",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "handicap": "160.5",
+                "outcomeId": "132040495"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "alternateLines": {
+      "description": "Period/Alternate Lines",
+      "id": "101",
+      "link": "/basketball/rest-of-world/argentina/lnb/period-alternate-lines-market-group",
+      "itemList": [
+        {
+          "description": "Spread",
+          "id": "30246945",
+          "type": "SPR",
+          "columns": "H2Columns",
+          "marketTypeGroup": "SPREAD",
+          "sequence": "3",
+          "sportCode": "BASK",
+          "periodType": "First Half",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "outcomes": [
+            {
+              "description": "San Martin Corrientes 1H",
+              "id": "133511298",
+              "type": "A",
+              "competitorId": "2382232-32277",
+              "status": "OPEN",
+              "price": {
+                "id": "157209713",
+                "american": "-120",
+                "decimal": "1.833333",
+                "fractional": "5/6",
+                "handicap": "0.5",
+                "outcomeId": "133511298"
+              }
+            },
+            {
+              "description": "Argentino Junin 1H",
+              "id": "133511299",
+              "type": "H",
+              "competitorId": "2382232-10893",
+              "status": "OPEN",
+              "price": {
+                "id": "157190236",
+                "american": "-115",
+                "decimal": "1.870",
+                "fractional": "20/23",
+                "handicap": "-0.5",
+                "outcomeId": "133511299"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - San Martin Corrientes",
+          "id": "30246943",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511284",
+              "type": "A",
+              "competitorId": "2382232-32277",
+              "status": "OPEN",
+              "price": {
+                "id": "157210473",
+                "american": "-165",
+                "decimal": "1.606061",
+                "fractional": "20/33",
+                "handicap": "78.5",
+                "outcomeId": "133511284"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511285",
+              "type": "A",
+              "competitorId": "2382232-32277",
+              "status": "OPEN",
+              "price": {
+                "id": "157210472",
+                "american": "+125",
+                "decimal": "2.250",
+                "fractional": "5/4",
+                "handicap": "78.5",
+                "outcomeId": "133511285"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - San Martin Corrientes",
+          "id": "30246947",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511288",
+              "type": "A",
+              "competitorId": "2382232-32277",
+              "status": "OPEN",
+              "price": {
+                "id": "157210476",
+                "american": "+120",
+                "decimal": "2.200",
+                "fractional": "6/5",
+                "handicap": "82.5",
+                "outcomeId": "133511288"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511289",
+              "type": "A",
+              "competitorId": "2382232-32277",
+              "status": "OPEN",
+              "price": {
+                "id": "157210475",
+                "american": "-155",
+                "decimal": "1.645161",
+                "fractional": "20/31",
+                "handicap": "82.5",
+                "outcomeId": "133511289"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - San Martin Corrientes",
+          "id": "30246948",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511286",
+              "type": "A",
+              "competitorId": "2382232-32277",
+              "status": "OPEN",
+              "price": {
+                "id": "157194617",
+                "american": "-115",
+                "decimal": "1.870",
+                "fractional": "20/23",
+                "handicap": "80.5",
+                "outcomeId": "133511286"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511287",
+              "type": "A",
+              "competitorId": "2382232-32277",
+              "status": "OPEN",
+              "price": {
+                "id": "157210474",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "handicap": "80.5",
+                "outcomeId": "133511287"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Argentino Junin",
+          "id": "30246951",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511292",
+              "type": "H",
+              "competitorId": "2382232-10893",
+              "status": "OPEN",
+              "price": {
+                "id": "157210480",
+                "american": "-115",
+                "decimal": "1.870",
+                "fractional": "20/23",
+                "handicap": "80.5",
+                "outcomeId": "133511292"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511293",
+              "type": "H",
+              "competitorId": "2382232-10893",
+              "status": "OPEN",
+              "price": {
+                "id": "157210479",
+                "american": "-115",
+                "decimal": "1.870",
+                "fractional": "20/23",
+                "handicap": "80.5",
+                "outcomeId": "133511293"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Argentino Junin",
+          "id": "30246952",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511290",
+              "type": "H",
+              "competitorId": "2382232-10893",
+              "status": "OPEN",
+              "price": {
+                "id": "157210478",
+                "american": "-160",
+                "decimal": "1.625",
+                "fractional": "5/8",
+                "handicap": "78.5",
+                "outcomeId": "133511290"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511291",
+              "type": "H",
+              "competitorId": "2382232-10893",
+              "status": "OPEN",
+              "price": {
+                "id": "157210477",
+                "american": "+120",
+                "decimal": "2.200",
+                "fractional": "6/5",
+                "handicap": "78.5",
+                "outcomeId": "133511291"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Argentino Junin",
+          "id": "30246954",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511294",
+              "type": "H",
+              "competitorId": "2382232-10893",
+              "status": "OPEN",
+              "price": {
+                "id": "157210482",
+                "american": "+125",
+                "decimal": "2.250",
+                "fractional": "5/4",
+                "handicap": "82.5",
+                "outcomeId": "133511294"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511295",
+              "type": "H",
+              "competitorId": "2382232-10893",
+              "status": "OPEN",
+              "price": {
+                "id": "157210481",
+                "american": "-165",
+                "decimal": "1.606061",
+                "fractional": "20/33",
+                "handicap": "82.5",
+                "outcomeId": "133511295"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U",
+          "id": "30246944",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "3",
+          "sportCode": "BASK",
+          "periodType": "First Half",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "outcomes": [
+            {
+              "description": "Over 1H",
+              "id": "133511300",
+              "type": "O",
+              "status": "OPEN",
+              "price": {
+                "id": "157210489",
+                "american": "-120",
+                "decimal": "1.833333",
+                "fractional": "5/6",
+                "handicap": "79.5",
+                "outcomeId": "133511300"
+              }
+            },
+            {
+              "description": "Under 1H",
+              "id": "133511301",
+              "type": "U",
+              "status": "OPEN",
+              "price": {
+                "id": "157210483",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "handicap": "79.5",
+                "outcomeId": "133511301"
+              }
+            }
+          ]
+        },
+        {
+          "description": "1st Half Moneyline",
+          "id": "30246942",
+          "type": "PROP",
+          "columns": "H2Columns",
+          "marketTypeGroup": "PROPOSITION",
+          "sequence": "3",
+          "sportCode": "BASK",
+          "periodType": "First Half",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "outcomes": [
+            {
+              "description": "San Martin Corrientes 1H",
+              "id": "133511272",
+              "type": "A",
+              "competitorId": "2382232-32277",
+              "status": "OPEN",
+              "price": {
+                "id": "157209700",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "outcomeId": "133511272"
+              }
+            },
+            {
+              "description": "Argentino Junin 1H",
+              "id": "133511273",
+              "type": "H",
+              "competitorId": "2382232-10893",
+              "status": "OPEN",
+              "price": {
+                "id": "157209701",
+                "american": "-120",
+                "decimal": "1.833333",
+                "fractional": "5/6",
+                "outcomeId": "133511273"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "edgebetId": 430959359
+  },
+  {
+    "gamelines": {
+      "description": "Game Lines",
+      "id": "97",
+      "link": "/basketball/rest-of-world/argentina/lnb/game-lines-market-group",
+      "defaultType": true,
+      "itemList": [
+        {
+          "description": "Point Spread",
+          "id": "29785818",
+          "type": "SPR",
+          "columns": "H2Columns",
+          "mainMarketType": "SPREAD",
+          "mainPeriod": true,
+          "marketTypeGroup": "SPREAD",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Sionista de Parana",
+              "id": "131993001",
+              "type": "A",
+              "competitorId": "2381412-32259",
+              "status": "OPEN",
+              "price": {
+                "id": "157255606",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "handicap": "6.5",
+                "outcomeId": "131993001"
+              }
+            },
+            {
+              "description": "Lanus BC",
+              "id": "131993002",
+              "type": "H",
+              "competitorId": "2381412-23343",
+              "status": "OPEN",
+              "price": {
+                "id": "157255605",
+                "american": "-115",
+                "decimal": "1.870",
+                "fractional": "20/23",
+                "handicap": "-6.5",
+                "outcomeId": "131993002"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Moneyline",
+          "id": "29785817",
+          "type": "WW",
+          "columns": "H2Columns",
+          "mainMarketType": "MONEYLINE",
+          "mainPeriod": true,
+          "marketTypeGroup": "MONEY_LINE",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Sionista de Parana",
+              "id": "131992997",
+              "type": "A",
+              "competitorId": "2381412-32259",
+              "status": "OPEN",
+              "price": {
+                "id": "157254570",
+                "american": "+230",
+                "decimal": "3.300",
+                "fractional": "23/10",
+                "outcomeId": "131992997"
+              }
+            },
+            {
+              "description": "Lanus BC",
+              "id": "131992998",
+              "type": "H",
+              "competitorId": "2381412-23343",
+              "status": "OPEN",
+              "price": {
+                "id": "157254569",
+                "american": "-315",
+                "decimal": "1.31746",
+                "fractional": "20/63",
+                "outcomeId": "131992998"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total",
+          "id": "29785819",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "mainMarketType": "TOTAL",
+          "mainPeriod": true,
+          "marketTypeGroup": "TOTALS",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Over",
+              "id": "131992999",
+              "type": "O",
+              "status": "OPEN",
+              "price": {
+                "id": "157356177",
+                "american": "-115",
+                "decimal": "1.870",
+                "fractional": "20/23",
+                "handicap": "164.5",
+                "outcomeId": "131992999"
+              }
+            },
+            {
+              "description": "Under",
+              "id": "131993000",
+              "type": "U",
+              "status": "OPEN",
+              "price": {
+                "id": "157356176",
+                "american": "-115",
+                "decimal": "1.870",
+                "fractional": "20/23",
+                "handicap": "164.5",
+                "outcomeId": "131993000"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "alternateLines": {
+      "description": "Period/Alternate Lines",
+      "id": "101",
+      "link": "/basketball/rest-of-world/argentina/lnb/period-alternate-lines-market-group",
+      "itemList": [
+        {
+          "description": "Spread",
+          "id": "30247002",
+          "type": "SPR",
+          "columns": "H2Columns",
+          "marketTypeGroup": "SPREAD",
+          "sequence": "3",
+          "sportCode": "BASK",
+          "periodType": "First Half",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "outcomes": [
+            {
+              "description": "Sionista de Parana 1H",
+              "id": "133511468",
+              "type": "A",
+              "competitorId": "2381412-32259",
+              "status": "OPEN",
+              "price": {
+                "id": "157255621",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "handicap": "3.5",
+                "outcomeId": "133511468"
+              }
+            },
+            {
+              "description": "Lanus BC 1H",
+              "id": "133511469",
+              "type": "H",
+              "competitorId": "2381412-23343",
+              "status": "OPEN",
+              "price": {
+                "id": "157255622",
+                "american": "-120",
+                "decimal": "1.833333",
+                "fractional": "5/6",
+                "handicap": "-3.5",
+                "outcomeId": "133511469"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Lanus BC",
+          "id": "30247003",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511464",
+              "type": "H",
+              "competitorId": "2381412-23343",
+              "status": "OPEN",
+              "price": {
+                "id": "157356190",
+                "american": "+115",
+                "decimal": "2.150",
+                "fractional": "23/20",
+                "handicap": "87.5",
+                "outcomeId": "133511464"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511465",
+              "type": "H",
+              "competitorId": "2381412-23343",
+              "status": "OPEN",
+              "price": {
+                "id": "157356191",
+                "american": "-150",
+                "decimal": "1.666667",
+                "fractional": "2/3",
+                "handicap": "87.5",
+                "outcomeId": "133511465"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Lanus BC",
+          "id": "30247004",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511462",
+              "type": "H",
+              "competitorId": "2381412-23343",
+              "status": "OPEN",
+              "price": {
+                "id": "157356188",
+                "american": "-120",
+                "decimal": "1.833333",
+                "fractional": "5/6",
+                "handicap": "85.5",
+                "outcomeId": "133511462"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511463",
+              "type": "H",
+              "competitorId": "2381412-23343",
+              "status": "OPEN",
+              "price": {
+                "id": "157356189",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "handicap": "85.5",
+                "outcomeId": "133511463"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Lanus BC",
+          "id": "30247005",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511460",
+              "type": "H",
+              "competitorId": "2381412-23343",
+              "status": "OPEN",
+              "price": {
+                "id": "157356187",
+                "american": "-170",
+                "decimal": "1.588235",
+                "fractional": "10/17",
+                "handicap": "83.5",
+                "outcomeId": "133511460"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511461",
+              "type": "H",
+              "competitorId": "2381412-23343",
+              "status": "OPEN",
+              "price": {
+                "id": "157251659",
+                "american": "+130",
+                "decimal": "2.300",
+                "fractional": "13/10",
+                "handicap": "83.5",
+                "outcomeId": "133511461"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Sionista de Parana",
+          "id": "30247009",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511458",
+              "type": "A",
+              "competitorId": "2381412-32259",
+              "status": "OPEN",
+              "price": {
+                "id": "157356185",
+                "american": "+115",
+                "decimal": "2.150",
+                "fractional": "23/20",
+                "handicap": "80.5",
+                "outcomeId": "133511458"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511459",
+              "type": "A",
+              "competitorId": "2381412-32259",
+              "status": "OPEN",
+              "price": {
+                "id": "157356186",
+                "american": "-150",
+                "decimal": "1.666667",
+                "fractional": "2/3",
+                "handicap": "80.5",
+                "outcomeId": "133511459"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Sionista de Parana",
+          "id": "30247010",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511454",
+              "type": "A",
+              "competitorId": "2381412-32259",
+              "status": "OPEN",
+              "price": {
+                "id": "157356182",
+                "american": "-175",
+                "decimal": "1.571429",
+                "fractional": "4/7",
+                "handicap": "76.5",
+                "outcomeId": "133511454"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511455",
+              "type": "A",
+              "competitorId": "2381412-32259",
+              "status": "OPEN",
+              "price": {
+                "id": "157356181",
+                "american": "+135",
+                "decimal": "2.350",
+                "fractional": "27/20",
+                "handicap": "76.5",
+                "outcomeId": "133511455"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Sionista de Parana",
+          "id": "30247011",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511456",
+              "type": "A",
+              "competitorId": "2381412-32259",
+              "status": "OPEN",
+              "price": {
+                "id": "157356183",
+                "american": "-125",
+                "decimal": "1.800",
+                "fractional": "4/5",
+                "handicap": "78.5",
+                "outcomeId": "133511456"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511457",
+              "type": "A",
+              "competitorId": "2381412-32259",
+              "status": "OPEN",
+              "price": {
+                "id": "157356184",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "handicap": "78.5",
+                "outcomeId": "133511457"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U",
+          "id": "30247006",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "3",
+          "sportCode": "BASK",
+          "periodType": "First Half",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "outcomes": [
+            {
+              "description": "Over 1H",
+              "id": "133511470",
+              "type": "O",
+              "status": "OPEN",
+              "price": {
+                "id": "157356192",
+                "american": "-115",
+                "decimal": "1.870",
+                "fractional": "20/23",
+                "handicap": "81.5",
+                "outcomeId": "133511470"
+              }
+            },
+            {
+              "description": "Under 1H",
+              "id": "133511471",
+              "type": "U",
+              "status": "OPEN",
+              "price": {
+                "id": "157356193",
+                "american": "-115",
+                "decimal": "1.870",
+                "fractional": "20/23",
+                "handicap": "81.5",
+                "outcomeId": "133511471"
+              }
+            }
+          ]
+        },
+        {
+          "description": "1st Half Moneyline",
+          "id": "30247012",
+          "type": "PROP",
+          "columns": "H2Columns",
+          "marketTypeGroup": "PROPOSITION",
+          "sequence": "3",
+          "sportCode": "BASK",
+          "periodType": "First Half",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "outcomes": [
+            {
+              "description": "Sionista de Parana 1H",
+              "id": "133511442",
+              "type": "A",
+              "competitorId": "2381412-32259",
+              "status": "OPEN",
+              "price": {
+                "id": "157255610",
+                "american": "+180",
+                "decimal": "2.800",
+                "fractional": "9/5",
+                "outcomeId": "133511442"
+              }
+            },
+            {
+              "description": "Lanus BC 1H",
+              "id": "133511443",
+              "type": "H",
+              "competitorId": "2381412-23343",
+              "status": "OPEN",
+              "price": {
+                "id": "157255609",
+                "american": "-240",
+                "decimal": "1.416667",
+                "fractional": "5/12",
+                "outcomeId": "133511443"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "edgebetId": 430959364
+  },
+  {
+    "gamelines": {
+      "description": "Game Lines",
+      "id": "97",
+      "link": "/basketball/rest-of-world/argentina/lnb/game-lines-market-group",
+      "defaultType": true,
+      "itemList": [
+        {
+          "description": "Point Spread",
+          "id": "29773825",
+          "type": "SPR",
+          "columns": "H2Columns",
+          "mainMarketType": "SPREAD",
+          "mainPeriod": true,
+          "marketTypeGroup": "SPREAD",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Quilmes Mar Del Plata",
+              "id": "131954311",
+              "type": "A",
+              "competitorId": "2380738-32225",
+              "status": "OPEN",
+              "price": {
+                "id": "157259664",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "handicap": "11.5",
+                "outcomeId": "131954311"
+              }
+            },
+            {
+              "description": "Gimnasia Indalo",
+              "id": "131954312",
+              "type": "H",
+              "competitorId": "2380738-32523",
+              "status": "OPEN",
+              "price": {
+                "id": "157261064",
+                "american": "-120",
+                "decimal": "1.833333",
+                "fractional": "5/6",
+                "handicap": "-11.5",
+                "outcomeId": "131954312"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Moneyline",
+          "id": "29773824",
+          "type": "WW",
+          "columns": "H2Columns",
+          "mainMarketType": "MONEYLINE",
+          "mainPeriod": true,
+          "marketTypeGroup": "MONEY_LINE",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Quilmes Mar Del Plata",
+              "id": "131954307",
+              "type": "A",
+              "competitorId": "2380738-32225",
+              "status": "OPEN",
+              "price": {
+                "id": "157268148",
+                "american": "+550",
+                "decimal": "6.500",
+                "fractional": "11/2",
+                "outcomeId": "131954307"
+              }
+            },
+            {
+              "description": "Gimnasia Indalo",
+              "id": "131954308",
+              "type": "H",
+              "competitorId": "2380738-32523",
+              "status": "OPEN",
+              "price": {
+                "id": "157254512",
+                "american": "-1000",
+                "decimal": "1.100",
+                "fractional": "1/10",
+                "outcomeId": "131954308"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total",
+          "id": "29773826",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "mainMarketType": "TOTAL",
+          "mainPeriod": true,
+          "marketTypeGroup": "TOTALS",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Over",
+              "id": "131954309",
+              "type": "O",
+              "status": "OPEN",
+              "price": {
+                "id": "157190243",
+                "american": "-115",
+                "decimal": "1.870",
+                "fractional": "20/23",
+                "handicap": "162.5",
+                "outcomeId": "131954309"
+              }
+            },
+            {
+              "description": "Under",
+              "id": "131954310",
+              "type": "U",
+              "status": "OPEN",
+              "price": {
+                "id": "157190242",
+                "american": "-115",
+                "decimal": "1.870",
+                "fractional": "20/23",
+                "handicap": "162.5",
+                "outcomeId": "131954310"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "alternateLines": {
+      "description": "Period/Alternate Lines",
+      "id": "101",
+      "link": "/basketball/rest-of-world/argentina/lnb/period-alternate-lines-market-group",
+      "itemList": [
+        {
+          "description": "Spread",
+          "id": "30246963",
+          "type": "SPR",
+          "columns": "H2Columns",
+          "marketTypeGroup": "SPREAD",
+          "sequence": "3",
+          "sportCode": "BASK",
+          "periodType": "First Half",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "outcomes": [
+            {
+              "description": "Quilmes Mar Del Plata 1H",
+              "id": "133511336",
+              "type": "A",
+              "competitorId": "2380738-32225",
+              "status": "OPEN",
+              "price": {
+                "id": "157268162",
+                "american": "-125",
+                "decimal": "1.800",
+                "fractional": "4/5",
+                "handicap": "7.5",
+                "outcomeId": "133511336"
+              }
+            },
+            {
+              "description": "Gimnasia Indalo 1H",
+              "id": "133511337",
+              "type": "H",
+              "competitorId": "2380738-32523",
+              "status": "OPEN",
+              "price": {
+                "id": "157268161",
+                "american": "-105",
+                "decimal": "1.952381",
+                "fractional": "20/21",
+                "handicap": "-7.5",
+                "outcomeId": "133511337"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Gimnasia Indalo",
+          "id": "30246955",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511330",
+              "type": "H",
+              "competitorId": "2380738-32523",
+              "status": "OPEN",
+              "price": {
+                "id": "157261076",
+                "american": "-120",
+                "decimal": "1.833333",
+                "fractional": "5/6",
+                "handicap": "87.5",
+                "outcomeId": "133511330"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511331",
+              "type": "H",
+              "competitorId": "2380738-32523",
+              "status": "OPEN",
+              "price": {
+                "id": "157261075",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "handicap": "87.5",
+                "outcomeId": "133511331"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Gimnasia Indalo",
+          "id": "30246956",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511328",
+              "type": "H",
+              "competitorId": "2380738-32523",
+              "status": "OPEN",
+              "price": {
+                "id": "157353331",
+                "american": "-165",
+                "decimal": "1.606061",
+                "fractional": "20/33",
+                "handicap": "85.5",
+                "outcomeId": "133511328"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511329",
+              "type": "H",
+              "competitorId": "2380738-32523",
+              "status": "OPEN",
+              "price": {
+                "id": "157353330",
+                "american": "+125",
+                "decimal": "2.250",
+                "fractional": "5/4",
+                "handicap": "85.5",
+                "outcomeId": "133511329"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Quilmes Mar Del Plata",
+          "id": "30246959",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511322",
+              "type": "A",
+              "competitorId": "2380738-32225",
+              "status": "OPEN",
+              "price": {
+                "id": "157353324",
+                "american": "-180",
+                "decimal": "1.555556",
+                "fractional": "5/9",
+                "handicap": "71.5",
+                "outcomeId": "133511322"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511323",
+              "type": "A",
+              "competitorId": "2380738-32225",
+              "status": "OPEN",
+              "price": {
+                "id": "157353325",
+                "american": "+135",
+                "decimal": "2.350",
+                "fractional": "27/20",
+                "handicap": "71.5",
+                "outcomeId": "133511323"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Gimnasia Indalo",
+          "id": "30246961",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511332",
+              "type": "H",
+              "competitorId": "2380738-32523",
+              "status": "OPEN",
+              "price": {
+                "id": "157353333",
+                "american": "+120",
+                "decimal": "2.200",
+                "fractional": "6/5",
+                "handicap": "89.5",
+                "outcomeId": "133511332"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511333",
+              "type": "H",
+              "competitorId": "2380738-32523",
+              "status": "OPEN",
+              "price": {
+                "id": "157353332",
+                "american": "-155",
+                "decimal": "1.645161",
+                "fractional": "20/31",
+                "handicap": "89.5",
+                "outcomeId": "133511333"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Quilmes Mar Del Plata",
+          "id": "30246965",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511326",
+              "type": "A",
+              "competitorId": "2380738-32225",
+              "status": "OPEN",
+              "price": {
+                "id": "157353328",
+                "american": "+115",
+                "decimal": "2.150",
+                "fractional": "23/20",
+                "handicap": "75.5",
+                "outcomeId": "133511326"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511327",
+              "type": "A",
+              "competitorId": "2380738-32225",
+              "status": "OPEN",
+              "price": {
+                "id": "157353329",
+                "american": "-150",
+                "decimal": "1.666667",
+                "fractional": "2/3",
+                "handicap": "75.5",
+                "outcomeId": "133511327"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U - Quilmes Mar Del Plata",
+          "id": "30246967",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "7",
+          "sportCode": "BASK",
+          "periodType": "Regulation Time",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "notes": "Regulation time only",
+          "outcomes": [
+            {
+              "description": "Over REG",
+              "id": "133511324",
+              "type": "A",
+              "competitorId": "2380738-32225",
+              "status": "OPEN",
+              "price": {
+                "id": "157353326",
+                "american": "-125",
+                "decimal": "1.800",
+                "fractional": "4/5",
+                "handicap": "73.5",
+                "outcomeId": "133511324"
+              }
+            },
+            {
+              "description": "Under REG",
+              "id": "133511325",
+              "type": "A",
+              "competitorId": "2380738-32225",
+              "status": "OPEN",
+              "price": {
+                "id": "157353327",
+                "american": "-105",
+                "decimal": "1.952381",
+                "fractional": "20/21",
+                "handicap": "73.5",
+                "outcomeId": "133511325"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total Points O/U",
+          "id": "30246962",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "marketTypeGroup": "TOTALS",
+          "sequence": "3",
+          "sportCode": "BASK",
+          "periodType": "First Half",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "outcomes": [
+            {
+              "description": "Over 1H",
+              "id": "133511338",
+              "type": "O",
+              "status": "OPEN",
+              "price": {
+                "id": "157353335",
+                "american": "-110",
+                "decimal": "1.909091",
+                "fractional": "10/11",
+                "handicap": "80.5",
+                "outcomeId": "133511338"
+              }
+            },
+            {
+              "description": "Under 1H",
+              "id": "133511339",
+              "type": "U",
+              "status": "OPEN",
+              "price": {
+                "id": "157353334",
+                "american": "-120",
+                "decimal": "1.833333",
+                "fractional": "5/6",
+                "handicap": "80.5",
+                "outcomeId": "133511339"
+              }
+            }
+          ]
+        },
+        {
+          "description": "1st Half Moneyline",
+          "id": "30246964",
+          "type": "PROP",
+          "columns": "H2Columns",
+          "marketTypeGroup": "PROPOSITION",
+          "sequence": "3",
+          "sportCode": "BASK",
+          "periodType": "First Half",
+          "status": "OPEN",
+          "displayGroups": "101",
+          "outcomes": [
+            {
+              "description": "Quilmes Mar Del Plata 1H",
+              "id": "133511310",
+              "type": "A",
+              "competitorId": "2380738-32225",
+              "status": "OPEN",
+              "price": {
+                "id": "157268152",
+                "american": "+330",
+                "decimal": "4.300",
+                "fractional": "33/10",
+                "outcomeId": "133511310"
+              }
+            },
+            {
+              "description": "Gimnasia Indalo 1H",
+              "id": "133511311",
+              "type": "H",
+              "competitorId": "2380738-32523",
+              "status": "OPEN",
+              "price": {
+                "id": "157261066",
+                "american": "-500",
+                "decimal": "1.200",
+                "fractional": "1/5",
+                "outcomeId": "133511311"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "edgebetId": 430959355
+  },
+  {
+    "gamelines": {
+      "description": "Game Lines",
+      "id": "97",
+      "link": "/basketball/nba/game-lines-market-group",
+      "defaultType": true,
+      "itemList": [
+        {
+          "description": "Point Spread",
+          "id": "29785858",
+          "type": "SPR",
+          "columns": "H2Columns",
+          "mainMarketType": "SPREAD",
+          "mainPeriod": true,
+          "marketTypeGroup": "SPREAD",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "New York Knicks",
+              "id": "131993113",
+              "type": "A",
+              "competitorId": "2381411-544",
+              "status": "OPEN",
+              "price": {
+                "id": "157337635",
+                "american": "-110",
+                "decimal": "1.909",
+                "fractional": "10/11",
+                "handicap": "-4.5",
+                "outcomeId": "131993113"
+              }
+            },
+            {
+              "description": "New Orleans Pelicans",
+              "id": "131993114",
+              "type": "H",
+              "competitorId": "2381411-546",
+              "status": "OPEN",
+              "price": {
+                "id": "157337634",
+                "american": "-110",
+                "decimal": "1.909",
+                "fractional": "10/11",
+                "handicap": "4.5",
+                "outcomeId": "131993114"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Moneyline",
+          "id": "29785842",
+          "type": "WW",
+          "columns": "H2Columns",
+          "mainMarketType": "MONEYLINE",
+          "mainPeriod": true,
+          "marketTypeGroup": "MONEY_LINE",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "New York Knicks",
+              "id": "131993101",
+              "type": "A",
+              "competitorId": "2381411-544",
+              "status": "OPEN"
+            },
+            {
+              "description": "New Orleans Pelicans",
+              "id": "131993102",
+              "type": "H",
+              "competitorId": "2381411-546",
+              "status": "OPEN"
+            }
+          ]
+        },
+        {
+          "description": "Total",
+          "id": "29785859",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "mainMarketType": "TOTAL",
+          "mainPeriod": true,
+          "marketTypeGroup": "TOTALS",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Over",
+              "id": "131993105",
+              "type": "O",
+              "status": "OPEN",
+              "price": {
+                "id": "157366209",
+                "american": "-105",
+                "decimal": "1.952",
+                "fractional": "20/21",
+                "handicap": "202.0",
+                "outcomeId": "131993105"
+              }
+            },
+            {
+              "description": "Under",
+              "id": "131993106",
+              "type": "U",
+              "status": "OPEN",
+              "price": {
+                "id": "157366208",
+                "american": "-115",
+                "decimal": "1.87",
+                "fractional": "17/20",
+                "handicap": "202.0",
+                "outcomeId": "131993106"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "edgebetId": 431139635
+  },
+  {
+    "gamelines": {
+      "description": "Game Lines",
+      "id": "97",
+      "link": "/basketball/nba/game-lines-market-group",
+      "defaultType": true,
+      "itemList": [
+        {
+          "description": "Point Spread",
+          "id": "29786719",
+          "type": "SPR",
+          "columns": "H2Columns",
+          "mainMarketType": "SPREAD",
+          "mainPeriod": true,
+          "marketTypeGroup": "SPREAD",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Sacramento Kings",
+              "id": "131995736",
+              "type": "A",
+              "competitorId": "2381470-279",
+              "status": "OPEN",
+              "price": {
+                "id": "157468280",
+                "american": "-110",
+                "decimal": "1.909",
+                "fractional": "10/11",
+                "handicap": "9.5",
+                "outcomeId": "131995736"
+              }
+            },
+            {
+              "description": "Portland Trail Blazers",
+              "id": "131995737",
+              "type": "H",
+              "competitorId": "2381470-287",
+              "status": "OPEN",
+              "price": {
+                "id": "157468279",
+                "american": "-110",
+                "decimal": "1.909",
+                "fractional": "10/11",
+                "handicap": "-9.5",
+                "outcomeId": "131995737"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Moneyline",
+          "id": "29786712",
+          "type": "WW",
+          "columns": "H2Columns",
+          "mainMarketType": "MONEYLINE",
+          "mainPeriod": true,
+          "marketTypeGroup": "MONEY_LINE",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Sacramento Kings",
+              "id": "131995724",
+              "type": "A",
+              "competitorId": "2381470-279",
+              "status": "OPEN"
+            },
+            {
+              "description": "Portland Trail Blazers",
+              "id": "131995725",
+              "type": "H",
+              "competitorId": "2381470-287",
+              "status": "OPEN"
+            }
+          ]
+        },
+        {
+          "description": "Total",
+          "id": "29786722",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "mainMarketType": "TOTAL",
+          "mainPeriod": true,
+          "marketTypeGroup": "TOTALS",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Over",
+              "id": "131995728",
+              "type": "O",
+              "status": "OPEN",
+              "price": {
+                "id": "157462329",
+                "american": "-115",
+                "decimal": "1.87",
+                "fractional": "17/20",
+                "handicap": "220.0",
+                "outcomeId": "131995728"
+              }
+            },
+            {
+              "description": "Under",
+              "id": "131995729",
+              "type": "U",
+              "status": "OPEN",
+              "price": {
+                "id": "157462330",
+                "american": "-105",
+                "decimal": "1.952",
+                "fractional": "20/21",
+                "handicap": "220.0",
+                "outcomeId": "131995729"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "edgebetId": 431139637
+  },
+  {
+    "gamelines": {
+      "description": "Game Lines",
+      "id": "97",
+      "link": "/basketball/nba/game-lines-market-group",
+      "defaultType": true,
+      "itemList": [
+        {
+          "description": "Point Spread",
+          "id": "29785327",
+          "type": "SPR",
+          "columns": "H2Columns",
+          "mainMarketType": "SPREAD",
+          "mainPeriod": true,
+          "marketTypeGroup": "SPREAD",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Brooklyn Nets",
+              "id": "131992226",
+              "type": "A",
+              "competitorId": "2381396-292",
+              "status": "OPEN",
+              "price": {
+                "id": "157431668",
+                "american": "-115",
+                "decimal": "1.87",
+                "fractional": "17/20",
+                "handicap": "10.0",
+                "outcomeId": "131992226"
+              }
+            },
+            {
+              "description": "Miami Heat",
+              "id": "131992227",
+              "type": "H",
+              "competitorId": "2381396-203",
+              "status": "OPEN",
+              "price": {
+                "id": "157431669",
+                "american": "-105",
+                "decimal": "1.952",
+                "fractional": "20/21",
+                "handicap": "-10.0",
+                "outcomeId": "131992227"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Total",
+          "id": "29785542",
+          "type": "TOT",
+          "columns": "H2Columns",
+          "mainMarketType": "TOTAL",
+          "mainPeriod": true,
+          "marketTypeGroup": "TOTALS",
+          "sequence": "9",
+          "sportCode": "BASK",
+          "periodType": "Match",
+          "status": "OPEN",
+          "displayGroups": "97",
+          "belongsToDefault": true,
+          "outcomes": [
+            {
+              "description": "Over",
+              "id": "131992218",
+              "type": "O",
+              "status": "OPEN",
+              "price": {
+                "id": "157379374",
+                "american": "-105",
+                "decimal": "1.952",
+                "fractional": "20/21",
+                "handicap": "213.0",
+                "outcomeId": "131992218"
+              }
+            },
+            {
+              "description": "Under",
+              "id": "131992219",
+              "type": "U",
+              "status": "OPEN",
+              "price": {
+                "id": "157379373",
+                "american": "-115",
+                "decimal": "1.87",
+                "fractional": "17/20",
+                "handicap": "213.0",
+                "outcomeId": "131992219"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "edgebetId": 431153488
+  }
+]
