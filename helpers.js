@@ -60,6 +60,7 @@ export function bovadaBalance(headers, profileId) {
 
 }
 export function placeBetOnBovada(data, headers, cookies) {
+  console.log('placing bet on bovada', data, cookies)
   let bovadaBetBluePrint = {"channel":"WEB_BS","selections":{"selection":[{"outcomeId":"93276304","id":0,"system":"A","priceId":"80267125","oddsFormat":"DECIMAL"}]},"groups":{"group":[{"type":"STRAIGHT","groupSelections":[{"groupSelection":[{"selectionId":0,"order":0}]}],"id":0}]},"bets":{"bet":[{"betType":"SINGLE","betGroups":{"groupId":[0]},"stakePerLine":50,"isBox":false,"oddsFormat":"DECIMAL","specifyingRisk":true}]},"device":"DESKTOP"}
 
   let payload = Object.assign({}, bovadaBetBluePrint)
@@ -68,17 +69,62 @@ export function placeBetOnBovada(data, headers, cookies) {
   payload.bets.bet[0].stakePerLine = data.stake
   return new Promise((resolve, reject)=> {
     request
-    .post('https://sports.bovada.lv/services/sports/bet/betslip')
+    .post('https://sports.bovada.lv/services/sports/bet/betslip/validate')
     .set(headers)
     .set('Cookie', cookies)
     .send(payload)
     .end((err, res)=> {
       if(!!err) {
+        console.log('error validating bet', err)
         reject(err)
       }
       resolve(res.body)
     })
-
+  })
+  .then(result => {
+    return new Promise((resolve, reject)=> {
+      if(result.status != 'AVAILABLE') {
+        reject({code:5})
+      }
+      request
+      .post(`https://sports.bovada.lv/services/sports/bet/betslip/`)
+      .set(headers)
+      .set('Cookie', cookies)
+      .send(payload)
+      .end((err, res)=> {
+        if(!!err) {
+          console.log('error placing bet', err)
+          reject(err)
+        }
+        resolve(res.body)
+      })
+    })
+    .then(result => {
+      return new Promise((resolve, reject)=> {
+        let key = result.key
+        console.log('got key', key)
+        request
+        .get(`https://sports.bovada.lv/services/sports/bet/betslip/${key}`)
+        .set(headers)
+        .set('Cookie', cookies)
+        .end((err, res)=> {
+          if(!!err) {
+            console.log('cannot get key', err)
+            reject(err)
+          }
+          resolve(res.body.status)
+        })
+      })
+    })
+    .then(status => {
+      console.log('status is', status)
+      return new Promise((resolve, reject)=> {
+        if(status === 'FAIL') {
+          reject({code:6})
+        }
+        resolve({code:200})
+      })
+    })
   })
 }
 
@@ -100,14 +146,17 @@ export function validateData(bovadaData, edgebet) {
   let correctOutcome = gameLine.outcomes.filter(outcome => {
     return (outcome.type === OUTCOMETYPES[edgebet.oddsType][edgebet.output])
   })[0]
-  if(correctOutcome.price.decimal !== edgebet.odds) {
+  if(+correctOutcome.price.decimal - edgebet.odds < 0.01) {
+    return {
+      outcomeId: correctOutcome.price.outcomeId,
+      priceId: correctOutcome.price.id,
+      kelly:edgebet.kelly
+    }
+  }
+  else{
     return -1
   }
-  return {
-    outcomeId: correctOutcome.price.outcomeId,
-    priceId: correctOutcome.price.id,
-    kelly:edgebet.kelly
-  }
+
 
 }
 export function queryForMatch(link) {

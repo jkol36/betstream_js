@@ -11,8 +11,13 @@ let cookies
 function startPromiseChain(edge) {
   let valid
   let stake
+  let bBalance = bovadaBalance(profileId)
+
   getLinkForMatch(edge.homeTeam, edge.awayTeam)
-  .then(link => queryForMatch(link))
+  .then(link => {
+    console.log('got link for match', link)
+    return queryForMatch(link)
+  })
   .then(bovadaData => {
     valid = validateData(bovadaData, edge)
     if(valid !== -1) {
@@ -23,6 +28,7 @@ function startPromiseChain(edge) {
     }
   })
   .then(result => {
+    console.log('result', result)
     if(!result) {
       return bovadaBalance(auth, profileId)
     }
@@ -38,10 +44,37 @@ function startPromiseChain(edge) {
       stake: stake
     }
     return placeBetOnBovada(data, headers, cookies.join())
-
   })
-  .then(data => {
-    placedBet.create({outcomeId:valid.outcomeId, edgebetId:edge.offer})
+  .then(res => {
+    console.log('placeBetCode', res.code)
+    if(res.code === 200) {
+      saveBet(valid, edge, stake)
+    }
+  })
+  .catch(err => {
+    switch(err.code) {
+      case 1:
+      case 2:
+      case 4:
+        break
+      case 5:
+        console.log('bet not available anymore', edge.offer)
+      case 6:
+        console.log('failed to place bet')
+      case 3:
+        authenticateSelf()
+        startPromiseChain(edge)
+        break
+      default:
+        console.log(err, err.stack)
+    }
+  })
+}
+
+
+function saveBet(valid, edge, stake) {
+  console.log('saving bet')
+  placedBet.create({outcomeId:valid.outcomeId, edgebetId:edge.offer})
     let userbetRef = firebaseRef.child('userbets').push()
     userbetRef.set({
       status: 1,
@@ -66,23 +99,7 @@ function startPromiseChain(edge) {
       user: EDGEBET_USER_ID,
       wager: stake / 100
     })
-  })
-  .catch(err => {
-    switch(err.code) {
-      case 1:
-      case 2:
-      case 4:
-        break
-      case 3:
-        authenticateSelf()
-        startPromiseChain(edge)
-        break
-      default:
-        console.log(err, err.stack)
-    }
-  })
 }
-
 
 
 
