@@ -5,7 +5,7 @@ const request = require('superagent')
 
 export function getLinkForMatch(homeTeam, awayTeam) {
   return new Promise((resolve, reject) => {
-    fetch(`https://sports.bovada.lv/services/search/search?q=${homeTeam}${awayTeam}&type=sport&json=true&number=1`,
+    fetch(`https://sports.bovada.lv/services/search/search?q=${homeTeam}+${awayTeam}&type=sport&json=true&number=1`,
           { headers })
       .then(res => res.json())
       .then(json => {
@@ -100,6 +100,9 @@ export function validateData(bovadaData, edgebet) {
   let correctOutcome = gameLine.outcomes.filter(outcome => {
     return (outcome.type === OUTCOMETYPES[edgebet.oddsType][edgebet.output])
   })[0]
+  if(correctOutcome.price.decimal !== edgebet.odds) {
+    return -1
+  }
   return {
     outcomeId: correctOutcome.price.outcomeId,
     priceId: correctOutcome.price.id,
