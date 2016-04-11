@@ -73,7 +73,7 @@ function startPromiseChain(edge) {
 
 
 function saveBet(valid, edge, stake) {
-  console.log('saving bet')
+  console.log('saving bet', valid, edge, stake)
   placedBet.create({outcomeId:valid.outcomeId, edgebetId:edge.offer})
     let userbetRef = firebaseRef.child('userbets').push()
     userbetRef.set({
@@ -82,8 +82,8 @@ function saveBet(valid, edge, stake) {
         _id: edge.matchId,
         homeTeam: edge.homeTeam,
         awayTeam: edge.awayTeam,
-        competition: edge.competition,
-        country: edge.country,
+        competition: edge.competition || 0,
+        country: edge.country || 0,
         startTime: edge.startTime
       },
       bookmaker: edge.bookmaker,
@@ -99,6 +99,7 @@ function saveBet(valid, edge, stake) {
       user: EDGEBET_USER_ID,
       wager: stake / 100
     })
+    .catch(console.log)
 }
 
 
