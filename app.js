@@ -11,7 +11,6 @@ let cookies
 function startPromiseChain(edge) {
   let valid
   let stake
-  let bBalance = bovadaBalance(profileId)
 
   getLinkForMatch(edge.homeTeam, edge.awayTeam)
   .then(link => {
@@ -59,8 +58,10 @@ function startPromiseChain(edge) {
         break
       case 5:
         console.log('bet not available anymore', edge.offer)
+        break
       case 6:
         console.log('failed to place bet')
+        break
       case 3:
         authenticateSelf()
         startPromiseChain(edge)

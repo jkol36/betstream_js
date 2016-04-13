@@ -3,17 +3,26 @@ import { headers, BOVADA_USERNAME, BOVADA_PASSWORD, firebaseRef, BASE_URL } from
 const request = require('superagent')
 
 
+//maybe pass in an index that represents the numbereth result to pull
+//if we pull the wrong team url, try the nearest url.
 export function getLinkForMatch(homeTeam, awayTeam) {
   return new Promise((resolve, reject) => {
-    fetch(`https://sports.bovada.lv/services/search/search?q=${homeTeam}+${awayTeam}&type=sport&json=true&number=1`,
-          { headers })
+    let url = `https://sports.bovada.lv/services/search/search?q=${homeTeam}+${awayTeam}&type=sport&json=true&number=5`
+
+    fetch(url, { headers })
       .then(res => res.json())
       .then(json => {
         if (json.data === undefined)
           return reject({code: 4})
         let items = json.data.items
         if (items.length > 0) {
-          resolve(BASE_URL+items[0].link+'?json=true')
+          for(let i=0; i<items.length; i++) {
+            let link = BASE_URL+ items[i].link+'?json=true'
+            let hitHome = link.indexOf(homeTeam.split(' ').join('-').toLowerCase())> -1
+            let hitAway = link.indexOf(awayTeam.split(' ').join('-').toLowerCase())> -1
+            if(hitHome && hitAway)
+              resolve(link)
+          }
         } else {
           reject({code: 5})
         }
