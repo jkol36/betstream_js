@@ -16,13 +16,8 @@ export function getLinkForMatch(homeTeam, awayTeam) {
           return reject({code: 4})
         let items = json.data.items
         if (items.length > 0) {
-          for(let i=0; i<items.length; i++) {
-            let link = BASE_URL+ items[i].link+'?json=true'
-            let hitHome = link.indexOf(homeTeam.split(' ').join('-').toLowerCase())> -1
-            let hitAway = link.indexOf(awayTeam.split(' ').join('-').toLowerCase())> -1
-            if(hitHome && hitAway)
-              resolve(link)
-          }
+          resolve(BASE_URL+ items[0].link+'?json=true')
+
         } else {
           reject({code: 5})
         }
