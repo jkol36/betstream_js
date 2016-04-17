@@ -150,7 +150,7 @@ export function validateData(bovadaData, edgebet) {
   let correctOutcome = gameLine.outcomes.filter(outcome => {
     return (outcome.type === OUTCOMETYPES[edgebet.oddsType][edgebet.output])
   })[0]
-  if(+correctOutcome.price.decimal - edgebet.odds < 0.01) {
+  if(+correctOutcome.price.decimal - edgebet.odds < 0.01 || +correctOutcome.price.decimal > edgebet.odds) {
     return {
       outcomeId: correctOutcome.price.outcomeId,
       priceId: correctOutcome.price.id,
