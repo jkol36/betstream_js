@@ -134,7 +134,7 @@ export function placeBetOnBovada(data, headers, cookies) {
 
 export function validateData(bovadaData, edgebet) {
   let gameLine = bovadaData.gamelines.itemList.filter(line => {
-    let oddsType = ODDSTYPES[line.description.split(' ').join('').toLowerCase()]
+    let oddsType = ODDSTYPES[line.mainMarketType.split(' ').join('').toLowerCase()]
     if ([3,4,5].indexOf(oddsType)> -1) {
       return oddsType === edgebet.oddsType && (
             +line.outcomes[0].price.handicap === +edgebet.oddsTypeCondition ||
