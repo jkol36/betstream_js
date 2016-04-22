@@ -1,4 +1,4 @@
-import { headers, BASE_URL, firebaseRef, BOVADA_USERNAME, BOVADA_PASSWORD, initializeDatabase, loginToEdgebet, EDGEBET_USER_ID } from './config'
+import { headers, BASE_URL, firebaseRef, BOVADA_USERNAME, BOVADA_PASSWORD, initializeDatabase, EDGEBET_USER_ID } from './config'
 import fetch from 'node-fetch'
 import placedBet from './models/placedBet'
 import { getLinkForMatch, queryForMatch, checker, ODDSTYPES, OUTCOMETYPES, validateData, placeBetOnBovada, authWithBovada, bovadaBalance} from './helpers'
@@ -7,6 +7,8 @@ import { getLinkForMatch, queryForMatch, checker, ODDSTYPES, OUTCOMETYPES, valid
 let auth
 let profileId
 let cookies
+
+
 
 function startPromiseChain(edge) {
   let valid
@@ -117,13 +119,18 @@ function authenticateSelf() {
     profileId = authData.headers['x-profile-id']
     cookies = authData.headers['set-cookie']
   })
-  loginToEdgebet()
 }
 
 
 function run() {
     initializeDatabase()
     authenticateSelf()
+    firebaseRef.authWithPassword({email:'jonathankolman@gmail.com', password:'J0nnyb0y123'}, (error) => {
+      if(error)
+        console.log(error)
+        return
+      console.log('authenticated with edgebet')
+    })
     firebaseRef.child('edges').orderByChild('bookmaker/_id').equalTo(567).on('child_added', snap => {
       startPromiseChain(snap.val())
     })

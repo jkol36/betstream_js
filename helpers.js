@@ -133,6 +133,7 @@ export function placeBetOnBovada(data, headers, cookies) {
 }
 
 export function validateData(bovadaData, edgebet) {
+  console.log('validating data...')
   let gameLine = bovadaData.gamelines.itemList.filter(line => {
     let oddsType = ODDSTYPES[line.mainMarketType.split(' ').join('').toLowerCase()]
     if ([3,4,5].indexOf(oddsType)> -1) {
@@ -164,6 +165,7 @@ export function validateData(bovadaData, edgebet) {
 
 }
 export function queryForMatch(link) {
+  console.log('fetching url')
   return new Promise((resolve, reject) => {
     fetch(link, {headers:headers})
     .then(res => res.json())
@@ -185,6 +187,7 @@ export const ODDSTYPES = {
   moneyline:1,
   runline:3,
   pointspread:3,
+  spread:3,
   totalgoalsou:4,
   total: 4
 }
