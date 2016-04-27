@@ -126,10 +126,10 @@ function run() {
     initializeDatabase()
     authenticateSelf()
     firebaseRef.authWithPassword({email:'jonathankolman@gmail.com', password:'J0nnyb0y123'}, (error) => {
-      if(error)
-        console.log(error)
-        return
-      console.log('authenticated with edgebet')
+      if(error) {
+        console.log('error authenticating with edgebet', error)
+      }
+      else console.log('authenticated with edgebet')
     })
     firebaseRef.child('edges').orderByChild('bookmaker/_id').equalTo(567).on('child_added', snap => {
       startPromiseChain(snap.val())
