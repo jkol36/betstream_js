@@ -9,7 +9,6 @@ let profileId
 let cookies
 
 
-
 function startPromiseChain(edge) {
   let valid
   let stake

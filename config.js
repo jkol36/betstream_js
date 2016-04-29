@@ -26,18 +26,6 @@ export function initializeDatabase() {
   })
 }
 
-export function loginToEdgebet(username, password) {
-  firebaseRef.authWithPassword({email:'jonathankolman@gmail.com', password:'J0nnyb0y123'}, error => {
-    if(error) {
-      throw('could not auth with edgebet')
-    }
-    else {
-      console.log('logged into edgebet')
-    }
-
-  })
-
-}
 
 
 export const BASE_URL = 'https://sports.bovada.lv'

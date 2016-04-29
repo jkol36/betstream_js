@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register --timeout=10000",
-    "start": "node index"
+    "test": "mocha --compilers js:babel-register --timeout=10000", "start": "node index"
   },
   "devDependencies": {
     "chai": "^3.5.0",
