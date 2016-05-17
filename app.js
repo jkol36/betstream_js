@@ -128,17 +128,19 @@ function run() {
       if(error) {
         console.log('error authenticating with edgebet', error)
       }
-      else console.log('authenticated with edgebet')
-    })
-    firebaseRef.child('edges').orderByChild('bookmaker/_id').equalTo(567).once('value', snap=> {
-      if(snap.exists()) {
-       startPromiseChain(snap.val())
+      else {
+        firebaseRef.child('edges').orderByChild('bookmaker/_id').equalTo(567).once('value', snap=> {
+          if(snap.exists()) {
+           startPromiseChain(snap.val())
+          }
+        })
+        firebaseRef.child('edges').orderByChild('bookmaker/_id').equalTo(567).on('child_added', snap => {
+          console.log('got edge')
+          startPromiseChain(snap.val())
+        })
       }
     })
-    firebaseRef.child('edges').orderByChild('bookmaker/_id').equalTo(567).on('child_added', snap => {
-      console.log('got edge')
-      startPromiseChain(snap.val())
-    })
+    
 
 
 

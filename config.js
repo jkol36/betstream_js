@@ -10,8 +10,8 @@ export let headers = {
 
 
 
-export const BOVADA_USERNAME = 'sam13jaron@hotmail.com'
-export const BOVADA_PASSWORD = 'Sjaron1218'
+export const BOVADA_USERNAME = 'jonathankolman@gmail.com'
+export const BOVADA_PASSWORD = 'MakingMoney1995'
 export const EDGEBET_USER_ID = '6727921f-1c23-4397-b63c-1002745a3462'
 
 export function initializeDatabase() {
