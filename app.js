@@ -1,7 +1,9 @@
 import { headers, BASE_URL, firebaseRef, BOVADA_USERNAME, BOVADA_PASSWORD, initializeDatabase, EDGEBET_USER_ID } from './config'
-import fetch from 'node-fetch'
+//import {parseDimesSoccerMatches} from './parser'
 import placedBet from './models/placedBet'
-import { getLinkForMatch, queryForMatch, checker, ODDSTYPES, OUTCOMETYPES, validateData, placeBetOnBovada, authWithBovada, bovadaBalance} from './helpers'
+import { getLinkForMatch, test, dimesVerifyWager, fetch5DimesSoccerMatches, dimesLoginVerify, dimesSportSelection, dimesWagerMenu, dimesLoginViewComments, dimesSoccerMatches, dimesLoginVerify2, queryForMatch, ODDSTYPES, OUTCOMETYPES, validateData, placeBetOnBovada, authWithBovada, bovadaBalance} from './helpers'
+import moment from 'moment'
+let Promise = require('bluebird')
 
 
 let auth
@@ -10,74 +12,85 @@ let cookies
 
 
 function startPromiseChain(edge) {
+  console.log('called', edge)
   let valid
   let stake
-
-  getLinkForMatch(edge.homeTeam, edge.awayTeam)
-  .then(link => {
-    console.log('got link for match', link)
-    return queryForMatch(link)
-  })
-  .then(bovadaData => {
-    valid = validateData(bovadaData, edge)
-    if(valid !== -1) {
-      return placedBet.findOne({edgebetId:edge.offer})
-    }
-    else {
-      throw ({code: 1})
-    }
-  })
-  .then(result => {
-    console.log('result', result)
-    if(!result) {
-      return bovadaBalance(auth, profileId)
-    }
-    else {
-      throw ({code: 2})
-    }
-  })
-  .then(balance => {
-    stake = Math.round(balance * edge.kelly * 100)
-    let data = {
-      priceId:valid.priceId,
-      outcomeId:valid.outcomeId,
-      stake: stake
-    }
-    return placeBetOnBovada(data, headers, cookies.join())
-  })
-  .then(res => {
-    console.log('placeBetCode', res.code)
-    if(res.code === 200) {
-      saveBet(valid, edge, stake)
-    }
-  })
-  .catch(err => {
-    switch(err.code) {
-      case 1:
-      case 2:
-      case 4:
-        break
-      case 5:
-        console.log('bet not available anymore', edge.offer)
-        break
-      case 6:
-        console.log('failed to place bet')
-        break
-      case 3:
-        authenticateSelf()
-        startPromiseChain(edge)
-        break
-      default:
-        console.log(err, err.stack)
-    }
-  })
+  if(moment(edge.startTime).diff(moment.now(), 'hours') <= 2 ||
+    edge.edge > 3) {
+    console.log('here we go', edge)
+    getLinkForMatch(edge.homeTeam, edge.awayTeam)
+    .then(link => {
+      console.log('got link for match', link)
+      return queryForMatch(link)
+    })
+    .then(bovadaData => {
+      console.log('got bovada data', bovadaData)
+      valid = validateData(bovadaData, edge)
+      if(valid !== -1) {
+        return placedBet.findOne({edgebetId:edge.offer})
+      }
+      else {
+        throw ({code: 1})
+      }
+    })
+    .then(result => {
+      console.log('result', result)
+      if(!result) {
+        return bovadaBalance(auth, profileId)
+      }
+      else {
+        throw ({code: 2})
+      }
+    })
+    .then(balance => {
+      stake = Math.round(balance * edge.kelly * 100)
+      let data = {
+        priceId:valid.priceId,
+        outcomeId:valid.outcomeId,
+        stake: stake
+      }
+      return placeBetOnBovada(data, headers, cookies.join())
+    })
+    .then(res => {
+      console.log('placeBetCode', res.code)
+      if(res.code === 200) {
+        saveBet(valid, edge, stake)
+      }
+    })
+    .catch(err => {
+      switch(err.code) {
+        case 1:
+        case 2:
+        case 4:
+          break
+        case 5:
+          console.log('bet not available anymore', edge.offer)
+          break
+        case 6:
+          console.log('failed to place bet')
+          break
+        case 3:
+          authenticateSelf()
+          startPromiseChain(edge)
+          break
+        default:
+          console.log(err, err.stack)
+      }
+    })
+  }
+  else {
+    console.log(`${edge.homeTeam} vs ${edge.awayTeam} does not start for another ${moment(edge.startTime).fromNow(true)}`)
+    Promise.reject()
+  }
+  
 }
 
 
 function saveBet(valid, edge, stake) {
   console.log('saving bet', valid, edge, stake)
   placedBet.create({outcomeId:valid.outcomeId, edgebetId:edge.offer})
-    let userbetRef = firebaseRef.child('userbets').push()
+  firebaseRef.authWithPassword({email:'jonathankolman@gmail.com', password:'J0nnyb0y123'}, (error)=> {
+   let userbetRef = firebaseRef.child('userbets').push()
     userbetRef.set({
       status: 1,
       match: {
@@ -101,7 +114,10 @@ function saveBet(valid, edge, stake) {
       user: EDGEBET_USER_ID,
       wager: stake / 100
     })
+    .then(()=> console.log('pushed userbet to edgebet'))
     .catch(console.log)
+  })
+
 }
 
 
@@ -129,14 +145,25 @@ function run() {
         console.log('error authenticating with edgebet', error)
       }
       else {
-        firebaseRef.child('edges').orderByChild('bookmaker/_id').equalTo(567).once('value', snap=> {
+        firebaseRef.child('edges').orderByChild('bookmaker').equalTo(567).once('value', snap=> {
           if(snap.exists()) {
-           startPromiseChain(snap.val())
+            console.log('got bovada edge')
+            Promise.all(Promise.map(Object.keys(snap.val()).map(k => {
+              let edge = snap.val()[k]
+              return startPromiseChain(edge)
+            })
+            )).then(data=> console.log(data)).catch(err=> err)
           }
         })
-        firebaseRef.child('edges').orderByChild('bookmaker/_id').equalTo(567).on('child_added', snap => {
-          console.log('got edge')
-          startPromiseChain(snap.val())
+        firebaseRef.child('edges').orderByChild('bookmaker').equalTo(567).on('child_added', snap => {
+          if(snap.exists()) {
+            console.log('bovada bet added')
+            startPromiseChain(snap.val())
+          }
+        })
+        firebaseRef.child('edges').orderByChild('bookmaker').equalTo(567).on('child_changed', snap => {
+          console.log('bovada edge changed')
+          // startPromiseChain(snap.val())
         })
       }
     })
@@ -145,4 +172,48 @@ function run() {
 
 
 }
+
+
 run()
+// let userbetRef = firebaseRef.child('userbets').push()
+// userbetRef.set({
+//   status: 1,
+//   match: {
+//     _id: 'testing',
+//     homeTeam: 'testing',
+//     awayTeam: 'testing',
+//     competition: 0,
+//     country: 0,
+//     startTime: 172381273123
+//   },
+//   bookmaker: {'id': 567, 'name': 'Bovada'},
+//   createdAt: 1472199362667,
+//   edge: 3,
+//   odds: 1.87,
+//   oddsType: 0,
+//   oddsTypeCondition: 0,
+//   offer: 478702415,
+//   output: "o3",
+//   sportId: 1,
+//   currency: 'USD',
+//   user: '6727921f-1c23-4397-b63c-1002745a3462',
+//   wager: 100
+// })
+// .then(()=> console.log('pushed userbet to edgebet'))
+// .catch(console.log)
+// var ms = moment(now).diff(moment(then));
+// var d = moment.duration(ms);
+// var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+// console.log(s)
+// let username = 'ic35946'
+// let password = 'Bettor123'
+// dimesLoginVerify(username, password)
+// .then(()=> dimesLoginVerify2(username, password))
+// .then(()=> dimesLoginViewComments(username))
+// .then(()=> dimesWagerMenu(username))
+// .then(()=> dimesSportSelection(username))
+// .then(()=> dimesVerifyWager('5', 'M1_1'))
+// .then((res)=> console.log(res))
+// .catch((err)=> console.log(err))
+
+
