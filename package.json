@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register --timeout=10000", "start": "node index"
+    "test": "mocha --compilers js:babel-register --timeout=10000",
+    "start": "node index"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -32,10 +33,12 @@
     "isstream": "^0.1.2",
     "json-stringify-safe": "^5.0.1",
     "mime-types": "^2.1.10",
+    "moment": "^2.14.1",
     "mongoose": "^4.4.3",
     "node-fetch": "^1.3.3",
     "node-uuid": "^1.4.7",
     "oauth-sign": "^0.8.1",
+    "osmosis": "^1.0.2",
     "qs": "^6.1.0",
     "redux": "^3.3.1",
     "redux-thunk": "^1.0.3",

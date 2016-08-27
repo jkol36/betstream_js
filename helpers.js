@@ -1,6 +1,5 @@
 import fetch from 'node-fetch'
 import { headers, dimesHeaders, dimesCookies, soccerMatchData, basketballMatchData, footballMatchData, BOVADA_USERNAME, BOVADA_PASSWORD, firebaseRef, BASE_URL } from './config'
-import osmosis from 'osmosis'
 import cheerio from 'cheerio'
 const request = require('superagent').agent()
 
