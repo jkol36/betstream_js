@@ -28,6 +28,7 @@ function startPromiseChain(edge) {
     })
     .then(returnedData => {
       if(returnedData !== -1) {
+        valid = returnedData
         return placedBet.findOne({edgebetId:edge.offer})
       }
       else {
