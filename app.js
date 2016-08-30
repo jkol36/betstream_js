@@ -24,17 +24,19 @@ function startPromiseChain(edge) {
       return queryForMatch(link)
     })
     .then(bovadaData => {
-      console.log('got bovada data', bovadaData)
-      valid = validateData(bovadaData, edge)
-      if(valid !== -1) {
+      return validateData(bovadaData, edge)
+    })
+    .then(returnedData => {
+      if(returnedData !== -1) {
         return placedBet.findOne({edgebetId:edge.offer})
       }
       else {
-        throw ({code: 1})
+        throw ({code:1})
       }
     })
     .then(result => {
       console.log('result', result)
+      //!result because we only want to place the bet if there isn't a bet saved in db
       if(!result) {
         return bovadaBalance(auth, profileId)
       }
@@ -85,31 +87,58 @@ function startPromiseChain(edge) {
   
 }
 
-
+// let userbet = {
+//   baseline: edge.baseline,
+//   wager: +this.state.wager,
+//   currency: this.state.currency,
+//   sportId: edge.sportId,
+//   match: {
+//     _id: edge.matchId,
+//     startTime: edge.startTime,
+//     homeTeam: edge.homeTeam,
+//     awayTeam: edge.awayTeam,
+//     competition: edge.competition,
+//     country: edge.country
+//   },
+//   bookmaker: {
+//     _id: edge.bookmaker,
+//     name: bookmakers[edge.bookmaker]
+//   },
+//   oddsType: edge.oddsType,
+//   oddsTypeCondition: edge.oddsTypeCondition || 0,
+//   odds: edge.odds,
+//   offer: edge.offer,
+//   edge: edge.edge,
+//   status: 1,
+//   output: edge.output
+// }
 function saveBet(valid, edge, stake) {
   console.log('saving bet', valid, edge, stake)
   placedBet.create({outcomeId:valid.outcomeId, edgebetId:edge.offer})
   firebaseRef.authWithPassword({email:'jonathankolman@gmail.com', password:'J0nnyb0y123'}, (error)=> {
    let userbetRef = firebaseRef.child('userbets').push()
     userbetRef.set({
+      baseline:edge.baseline,
+      sportId:edge.sportId,
       status: 1,
+      oddsType:edge.oddsType,
+      oddsTypeCondition: edge.oddsTypeCondition || 0,
+      odds:edge.odds,
+      offer:edge.offer,
+      edge: edge.edge,
+      output:edge.output,
       match: {
         _id: edge.matchId,
         homeTeam: edge.homeTeam,
         awayTeam: edge.awayTeam,
-        competition: edge.competition || 0,
-        country: edge.country || 0,
+        competition: edge.competition,
+        country:edge.country,
         startTime: edge.startTime
       },
-      bookmaker: edge.bookmaker,
-      createdAt: edge.createdAt,
-      edge: edge.edge,
-      odds: edge.odds,
-      oddsType: edge.oddsType,
-      oddsTypeCondition: edge.oddsTypeCondition || 0,
-      offer: edge.offer,
-      output: edge.output,
-      sportId: edge.sportId,
+      bookmaker: {
+        _id: 567,
+        name: 'Bovada'
+      },
       currency: 'USD',
       user: EDGEBET_USER_ID,
       wager: stake / 100
@@ -163,7 +192,7 @@ function run() {
         })
         firebaseRef.child('edges').orderByChild('bookmaker').equalTo(567).on('child_changed', snap => {
           console.log('bovada edge changed')
-          // startPromiseChain(snap.val())
+          startPromiseChain(snap.val())
         })
       }
     })
