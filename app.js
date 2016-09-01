@@ -46,7 +46,7 @@ function startPromiseChain(edge) {
       }
     })
     .then(balance => {
-      stake = Math.round(balance * edge.kelly * 100)
+      stake = Math.round(balance * edge.kelly/2 * 100)
       let data = {
         priceId:valid.priceId,
         outcomeId:valid.outcomeId,
@@ -204,7 +204,6 @@ function run() {
 }
 
 
-run()
 // let userbetRef = firebaseRef.child('userbets').push()
 // userbetRef.set({
 //   status: 1,
