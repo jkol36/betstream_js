@@ -1,4 +1,5 @@
 import fetch from 'node-fetch'
+import placedBet from './models/placedBet'
 import { headers, dimesHeaders, dimesCookies, soccerMatchData, basketballMatchData, footballMatchData, BOVADA_USERNAME, BOVADA_PASSWORD, firebaseRef, BASE_URL } from './config'
 import cheerio from 'cheerio'
 const request = require('superagent').agent()
@@ -10,7 +11,6 @@ export function getLinkForMatch(homeTeam, awayTeam) {
   console.log('finding link for match', homeTeam, awayTeam)
   return new Promise((resolve, reject) => {
     let url = `https://sports.bovada.lv/services/search/search?q=${homeTeam}+${awayTeam}&type=sport&json=true&number=5`
-
     fetch(url, { headers })
       .then(res => res.json())
       .then(json => {
@@ -19,18 +19,18 @@ export function getLinkForMatch(homeTeam, awayTeam) {
           return reject({code: 4})
         }
         else {
-            let items = json.data.items
-            if (items.length > 0) {
-              resolve(BASE_URL+ items[0].link+'?json=true')
-
-            } else {
-              reject({code: 5})
+          let items = json.data.items
+          if (items.length > 0) {
+              resolve(BASE_URL+items[0].link+'?json=true')
             }
-
+          else {
+            reject({code: 5})
+          }
         }
-      }).catch(reject)
+      })
   })
 }
+
 
 export function dimesLoginVerify(username, password) {
     return new Promise((resolve, reject)=> {
@@ -374,6 +374,7 @@ export function bovadaBalance(headers, profileId) {
 
 
 }
+
 export function placeBetOnBovada(data, headers, cookies) {
   console.log('placing bet on bovada', data, cookies)
   let bovadaBetBluePrint = {"channel":"WEB_BS","selections":{"selection":[{"outcomeId":"93276304","id":0,"system":"A","priceId":"80267125","oddsFormat":"DECIMAL"}]},"groups":{"group":[{"type":"STRAIGHT","groupSelections":[{"groupSelection":[{"selectionId":0,"order":0}]}],"id":0}]},"bets":{"bet":[{"betType":"SINGLE","betGroups":{"groupId":[0]},"stakePerLine":50,"isBox":false,"oddsFormat":"DECIMAL","specifyingRisk":true}]},"device":"DESKTOP"}
@@ -449,42 +450,43 @@ export function placeBetOnBovada(data, headers, cookies) {
 }
 
 export function validateData(bovadaData, edgebet) {
-  console.log('validating data...')
-  let gameLine = bovadaData.gamelines.itemList.filter(line => {
+  return new Promise((resolve, reject)=> {
+    console.log('validating data...')
+    let gameLine = bovadaData.gamelines.itemList.filter(line => {
     let oddsType 
-    try {
-      oddsType = ODDSTYPES[line.mainMarketType.split(' ').join('').toLowerCase()]
+      try {
+        oddsType = ODDSTYPES[line.mainMarketType.split(' ').join('').toLowerCase()]
+      }
+      catch(err) {
+        reject(err)
+      }
+      if ([3,4,5].indexOf(oddsType)> -1) {
+        return oddsType === edgebet.oddsType && (
+              +line.outcomes[0].price.handicap === +edgebet.oddsTypeCondition ||
+              +line.outcomes[1].price.handicap === +edgebet.oddsTypeCondition
+            )
+      } else {
+        return oddsType === edgebet.oddsType
+      }
+    })[0]
+    if (!gameLine) {
+      resolve(-1)
     }
-    catch(err) {
-      console.log("Could not get odds type", err)
-    }
-    if ([3,4,5].indexOf(oddsType)> -1) {
-      return oddsType === edgebet.oddsType && (
-            +line.outcomes[0].price.handicap === +edgebet.oddsTypeCondition ||
-            +line.outcomes[1].price.handicap === +edgebet.oddsTypeCondition
-          )
-    } else {
-      return oddsType === edgebet.oddsType
-    }
-  })[0]
-  if (!gameLine) {
-    return -1
-  }
-  let correctOutcome = gameLine.outcomes.filter(outcome => {
-    return (outcome.type === OUTCOMETYPES[edgebet.oddsType][edgebet.output])
-  })[0]
-  if(+correctOutcome.price.decimal - edgebet.odds < 0.01 || +correctOutcome.price.decimal > edgebet.odds) {
-    return {
-      outcomeId: correctOutcome.price.outcomeId,
-      priceId: correctOutcome.price.id,
-      kelly:edgebet.kelly
-    }
-  }
-  else{
-    return -1
-  }
 
-
+    let correctOutcome = gameLine.outcomes.filter(outcome => {
+      return (outcome.type === OUTCOMETYPES[edgebet.oddsType][edgebet.output])
+    })[0]
+    if(+correctOutcome.price.decimal - edgebet.odds < 0.01 || +correctOutcome.price.decimal > edgebet.odds) {
+      resolve({
+        outcomeId: correctOutcome.price.outcomeId,
+        priceId: correctOutcome.price.id,
+        kelly:edgebet.kelly
+      })
+    }
+    else{
+      resolve(-1)
+    }
+  })
 }
 export function queryForMatch(link) {
   console.log('fetching url', link)
@@ -494,19 +496,16 @@ export function queryForMatch(link) {
     .set(headers)
     .end((err, res)=> {
       if(err) {
-        switch(err.status){
-          case 301:
-            console.log(err.response.redirects)
-            resolve(queryForMatch(err.response.redirects[0]))
-        }
+        console.log('got err')
+        reject({error: {code: err.status, redirectUrl: err.response.redirects[0]}})
       }
       else {
         let dict = res.body.data.regions.content_center
         let data = dict[Object.keys(dict)[0]]['json-var'].value.items[0].displayGroups
         let alternateLines = data[1]
         let gameLines = data[0]
-        data = {gamelines:gameLines, alternateLines:alternateLines}
-        resolve(data)
+        let dataDict = {gamelines:gameLines, alternateLines:alternateLines}
+        resolve(dataDict)
       }
     })
   })
