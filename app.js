@@ -216,11 +216,13 @@ export const listenForEdges = () => {
       ref.once('value', snap=> {
         console.log('new edge', snap.val())
         if(snap.exists()) {
+          authenticateSelf()
           Object.keys(snap.val()).map(k =>startPromiseChain(snap.val()[k]))
         }
       })
       ref.on('child_added', snap => {
         console.log('new edge')
+        authenticateSelf()
         startPromiseChain(snap.val())
       })
       ref.on('child_changed', snap => {
