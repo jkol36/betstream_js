@@ -28,7 +28,7 @@ const reroute = (redirectUrl, edge) => {
       })
       .then(balance => {
         let stake
-        stake = Math.round(balance * edge.kelly/2 * 100)
+        stake = Math.round(balance * edge.kelly * 100)
         let data = {
           priceId:valid.priceId,
           outcomeId:valid.outcomeId,
@@ -104,7 +104,7 @@ const startPromiseChain = (edge)=> {
       }
     })
     .then(balance => {
-      stake = Math.round(balance * edge.kelly/2 * 100)
+      stake = Math.round(balance * edge.kelly * 100)
       let data = {
         priceId:valid.priceId,
         outcomeId:valid.outcomeId,
@@ -239,4 +239,4 @@ const start = () => {
   .catch((err)=> console.log(err, err.stack))
 }
 
-start()
+
