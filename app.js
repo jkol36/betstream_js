@@ -74,7 +74,8 @@ const startPromiseChain = (edge)=> {
   console.log('called', edge)
   let valid
   let stake
-  if(moment(edge.startTime).diff(moment.now(), 'hours') <= 2) {
+  if(moment(edge.startTime).diff(moment.now(), 'hours') <= 2 
+    && edge.odds < 3 && edge.edge >= 3) {
     console.log('here we go', edge)
     getLinkForMatch(edge.homeTeam, edge.awayTeam)
     .then(link => {
@@ -146,7 +147,7 @@ const startPromiseChain = (edge)=> {
     })
   }
   else {
-    console.log(`${edge.homeTeam} vs ${edge.awayTeam} does not start for another ${moment(edge.startTime).fromNow(true)}`)
+    console.log(`${edge.homeTeam} vs ${edge.awayTeam} was rejected. Starts: ${moment(edge.startTime).fromNow(true)} edge: ${edge.edge}, odds: ${edge.odds}`)
     Promise.reject()
   }
   
