@@ -74,8 +74,7 @@ const startPromiseChain = (edge)=> {
   console.log('called', edge)
   let valid
   let stake
-  if(moment(edge.startTime).diff(moment.now(), 'hours') <= 2 
-    && edge.odds < 3 && edge.edge >= 3) {
+  if(moment(edge.startTime).diff(moment.now(), 'hours') <= 3) {
     console.log('here we go', edge)
     getLinkForMatch(edge.homeTeam, edge.awayTeam)
     .then(link => {
@@ -105,7 +104,7 @@ const startPromiseChain = (edge)=> {
       }
     })
     .then(balance => {
-      stake = Math.round(balance * edge.kelly * 100)
+      stake = Math.round(balance * edge.kelly * 100)/3
       let data = {
         priceId:valid.priceId,
         outcomeId:valid.outcomeId,
@@ -121,10 +120,6 @@ const startPromiseChain = (edge)=> {
       }
     })
     .catch(err => {
-      switch(err.error.code) {
-        case 301:
-        reroute(err.error.redirectUrl, edge)
-      }
       switch(err.code) {
         case 1:
         console.log('edge does not exist anymore')
@@ -154,37 +149,35 @@ const startPromiseChain = (edge)=> {
 }
 
 function saveBet(valid, edge, stake) {
+  console.log('saving bet')
   placedBet.create({outcomeId:valid.outcomeId, edgebetId:edge.offer})
-  firebaseRef.authWithPassword({email:'jonathankolman@gmail.com', password:'J0nnyb0y123'}, (error)=> {
-   let userbetRef = firebaseRef.child('userbets').push()
-    userbetRef.set({
-      baseline:edge.baseline,
-      sportId:edge.sportId,
-      status: 1,
-      oddsType:edge.oddsType,
-      oddsTypeCondition: edge.oddsTypeCondition || 0,
-      odds:edge.odds,
-      offer:edge.offer,
-      edge: edge.edge,
-      output:edge.output,
-      match: {
+  let usertrade = {
+       match: {
         _id: edge.matchId,
         homeTeam: edge.homeTeam,
         awayTeam: edge.awayTeam,
         competition: edge.competition,
-        country:edge.country,
         startTime: edge.startTime
       },
-      bookmaker: {
-        _id: 567,
-        name: 'Bovada'
-      },
+      bookmaker: edge.bookmaker,
+      createdAt: firebase.database.ServerValue.TIMESTAMP,
+      wager: stake / 100,
       currency: 'USD',
+      edge: edge.edge,
+      closing:edge,
+      odds:edge.odds,
+      oddsType:edge.oddsType,
+      oddsTypeCondition: edge.oddsTypeCondition || 0,
+      output:edge.output,
+      sport: edge.sportId,
+      status: 1,
       user: EDGEBET_USER_ID,
-      wager: stake / 100
-    })
-    .then(()=> console.log('pushed userbet to edgebet'))
-    .catch(console.log)
+      tradeId: edge._id
+    }
+    const ref = firebase.database().ref('usertrades').push()
+    return firebase.database().ref().update({
+    [`usertrade-keys/${EDGEBET_USER_ID}/${ref.key}`]: true,
+    [`usertrades/${ref.key}`]: usertrade
   })
 
 }
@@ -207,29 +200,13 @@ const authenticateSelf = () => {
 
 export const listenForEdges = () => {
   console.log('listening for edges')
-  firebaseRef.authWithPassword({email:'jonathankolman@gmail.com', password:'J0nnyb0y123'}, (error) => {
-    if(error) {
-      console.log('error authenticating with edgebet', error)
-    }
-    else {
-      let ref = firebaseRef.child('edges').orderByChild('bookmaker').equalTo(567)
-      ref.once('value', snap=> {
-        console.log('new edge', snap.val())
-        if(snap.exists()) {
-          authenticateSelf()
-          Object.keys(snap.val()).map(k =>startPromiseChain(snap.val()[k]))
-        }
-      })
-      ref.on('child_added', snap => {
-        console.log('new edge')
-        authenticateSelf()
-        startPromiseChain(snap.val())
-      })
-      ref.on('child_changed', snap => {
-        startPromiseChain(snap.val())
-      })
-
-    }
+  firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).on('child_added', s => {
+    authenticateSelf()
+    startPromiseChain(s.val())
+  })
+  firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).once('value', s => {
+    authenticateSelf()
+    Object.keys(s.val()).map(k => startPromiseChain(s.val()[k]))
   })
 }
 

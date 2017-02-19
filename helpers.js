@@ -1,7 +1,6 @@
 import fetch from 'node-fetch'
 import placedBet from './models/placedBet'
 import { headers, dimesHeaders, dimesCookies, soccerMatchData, basketballMatchData, footballMatchData, BOVADA_USERNAME, BOVADA_PASSWORD, firebaseRef, BASE_URL } from './config'
-import cheerio from 'cheerio'
 const request = require('superagent').agent()
 
 
