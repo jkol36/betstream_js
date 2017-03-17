@@ -74,7 +74,7 @@ const startPromiseChain = (edge)=> {
   console.log('called', edge)
   let valid
   let stake
-  if(moment(edge.startTime).diff(moment.now(), 'hours') <= 3) {
+  if(moment(edge.startTime).diff(moment.now(), 'hours') <= 3 && edge.edge > 2 && edge.sportId !== 5) {
     console.log('here we go', edge)
     getLinkForMatch(edge.homeTeam, edge.awayTeam)
     .then(link => {
