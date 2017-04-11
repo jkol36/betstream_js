@@ -183,7 +183,11 @@ function saveBet(valid, edge, stake) {
 }
 
 
-
+const removeAllTrades = () => {
+  return firebase.database().ref('usertrades').orderByChild('user').equalTo('BVk5pMWc9AeBZ9T0h6iTszyRDB62').once('value', s => {
+    console.log(s.val())
+  })
+}
 const authenticateSelf = () => {
   if(BOVADA_USERNAME === '' || BOVADA_PASSWORD === '') {
     throw new Error('SET THE BOVADA USERNAME AND PASSWORD IN CONFIG.JS')
@@ -202,7 +206,7 @@ export const listenForEdges = () => {
   console.log('listening for edges')
   firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).on('child_added', s => {
     authenticateSelf()
-    startPromiseChain(s.val())
+    startPromiseChain(s.val()).catch(console.log)
   })
   firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).once('value', s => {
     authenticateSelf()
@@ -218,3 +222,5 @@ const start = () => {
 }
 
 start()
+
+
