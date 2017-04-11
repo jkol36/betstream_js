@@ -206,11 +206,16 @@ export const listenForEdges = () => {
   console.log('listening for edges')
   firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).on('child_added', s => {
     authenticateSelf()
-    startPromiseChain(s.val()).catch(console.log)
+    if(s.val() !== undefined) 
+      startPromiseChain(s.val())
   })
   firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).once('value', s => {
     authenticateSelf()
-    Object.keys(s.val()).map(k => startPromiseChain(s.val()[k]))
+    Object.keys(s.val()).map(k => {
+      if(s.val()[k] !== undefined) {
+        return startPromiseChain(s.val()[k])
+      }
+    })
   })
 }
 
