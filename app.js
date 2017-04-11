@@ -28,7 +28,7 @@ const reroute = (redirectUrl, edge) => {
       })
       .then(balance => {
         let stake
-        stake = Math.round(balance * edge.kelly * 100)
+        stake = Math.round(balance * edge.kelly * 100)/3
         let data = {
           priceId:valid.priceId,
           outcomeId:valid.outcomeId,
