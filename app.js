@@ -200,6 +200,7 @@ const authenticateSelf = () => {
     auth.Authorization = authData.body.token_type + ' '+authData.body.access_token
     profileId = authData.headers['x-profile-id']
     cookies = authData.headers['set-cookie']
+    lastAuth = moment.now()
   })
 }
 
