@@ -11,6 +11,7 @@ let Promise = require('bluebird')
 let auth
 let profileId
 let cookies
+let lastAuth
 
 
 const reroute = (redirectUrl, edge) => {
@@ -205,7 +206,8 @@ const authenticateSelf = () => {
 export const listenForEdges = () => {
   console.log('listening for edges')
   firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).on('child_added', s => {
-    authenticateSelf()
+    if(moment(lastAuth).diff(moment(moment.now()), 'minutes') >= 10)
+      authenticateSelf()
     setTimeout(() => startPromiseChain(s.val(), 1000))
   })
   // firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).once('value', s => {
