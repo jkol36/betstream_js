@@ -459,14 +459,21 @@ export function validateData(bovadaData, edgebet) {
       catch(err) {
         reject(err)
       }
+      let isGood = false
       if ([3,4,5].indexOf(oddsType)> -1) {
-        return oddsType === edgebet.oddsType && (
+        try {
+          isGood = oddsType === edgebet.oddsType && (
               +line.outcomes[0].price.handicap === +edgebet.oddsTypeCondition ||
               +line.outcomes[1].price.handicap === +edgebet.oddsTypeCondition
             )
+        }
+        catch(err) {
+          isGood = oddsType === edgebet.oddsType
+        }
       } else {
-        return oddsType === edgebet.oddsType
+        isGood = oddsType === edgebet.oddsType
       }
+      return isGood
     })[0]
     if (!gameLine) {
       resolve(-1)

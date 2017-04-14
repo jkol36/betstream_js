@@ -108,7 +108,7 @@ const startPromiseChain = (edge)=> {
       let data = {
         priceId:valid.priceId,
         outcomeId:valid.outcomeId,
-        stake: stake
+        stake
       }
       console.log('got data', data)
       return placeBetOnBovada(data, headers, cookies.join())
@@ -206,17 +206,16 @@ export const listenForEdges = () => {
   console.log('listening for edges')
   firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).on('child_added', s => {
     authenticateSelf()
-    if(s.val() !== undefined) 
-      startPromiseChain(s.val())
+    setTimeout(() => startPromiseChain(s.val(), 1000))
   })
-  firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).once('value', s => {
-    authenticateSelf()
-    Object.keys(s.val()).map(k => {
-      if(s.val()[k] !== undefined) {
-        return startPromiseChain(s.val()[k])
-      }
-    })
-  })
+  // firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).once('value', s => {
+  //   authenticateSelf()
+  //   Object.keys(s.val()).map(k => {
+  //     if(s.val()[k] !== undefined) {
+  //       startPromiseChain(s.val()[k])
+  //     }
+  //   })
+  // })
 }
 
 const start = () => {
