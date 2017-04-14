@@ -323,10 +323,12 @@ export function authWithBovada(username, password) {
       .send(data)
       .set(headers)
       .end((err, res) => {
-        if(err) {
+        if(!!err) {
           reject(({code: 3}))
         }
-        resolve(Object.assign({}, {'body':res.body}, {'headers':res.headers}))
+        else {
+          resolve(Object.assign({}, {'body':res.body}, {'headers':res.headers}))
+        }
       })
   })
 
