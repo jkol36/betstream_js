@@ -210,7 +210,7 @@ export const listenForEdges = () => {
   firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).on('child_added', s => {
     if(moment(lastAuth).diff(moment(moment.now()), 'minutes') >= 10)
       authenticateSelf()
-    setTimeout(() => startPromiseChain(s.val(), 1000))
+    setTimeout(() => startPromiseChain(s.val(), 8000))
   })
   // firebase.database().ref('trades').orderByChild('bookmaker').equalTo(567).once('value', s => {
   //   authenticateSelf()
