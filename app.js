@@ -29,7 +29,7 @@ const reroute = (redirectUrl, edge) => {
       })
       .then(balance => {
         let stake
-        stake = Math.round(balance * edge.kelly * 100)/3
+        stake = Math.round(balance * edge.kelly * 100)
         let data = {
           priceId:valid.priceId,
           outcomeId:valid.outcomeId,
@@ -106,7 +106,7 @@ const startPromiseChain = (edge)=> {
       }
     })
     .then(balance => {
-      stake = Math.round(balance * edge.kelly * 100)/3
+      stake = Math.round(balance * edge.kelly * 100)
       let data = {
         priceId:valid.priceId,
         outcomeId:valid.outcomeId,
@@ -152,35 +152,35 @@ const startPromiseChain = (edge)=> {
 
 function saveBet(valid, edge, stake) {
   console.log('saving bet')
-  placedBet.create({outcomeId:valid.outcomeId, edgebetId:edge.offer})
-  let usertrade = {
-       match: {
-        _id: edge.matchId,
-        homeTeam: edge.homeTeam,
-        awayTeam: edge.awayTeam,
-        competition: edge.competition,
-        startTime: edge.startTime
-      },
-      bookmaker: edge.bookmaker,
-      createdAt: firebase.database.ServerValue.TIMESTAMP,
-      wager: stake / 100,
-      currency: 'USD',
-      edge: edge.edge,
-      closing:edge,
-      odds:edge.odds,
-      oddsType:edge.oddsType,
-      oddsTypeCondition: edge.oddsTypeCondition || 0,
-      output:edge.output,
-      sport: edge.sportId,
-      status: 1,
-      user: EDGEBET_USER_ID,
-      tradeId: edge._id
-    }
-    const ref = firebase.database().ref('usertrades').push()
-    return firebase.database().ref().update({
-    [`usertrade-keys/${EDGEBET_USER_ID}/${ref.key}`]: true,
-    [`usertrades/${ref.key}`]: usertrade
-  })
+ return placedBet.create({outcomeId:valid.outcomeId, edgebetId:edge.offer})
+  // let usertrade = {
+  //      match: {
+  //       _id: edge.matchId,
+  //       homeTeam: edge.homeTeam,
+  //       awayTeam: edge.awayTeam,
+  //       competition: edge.competition,
+  //       startTime: edge.startTime
+  //     },
+  //     bookmaker: edge.bookmaker,
+  //     createdAt: firebase.database.ServerValue.TIMESTAMP,
+  //     wager: stake / 100,
+  //     currency: 'USD',
+  //     edge: edge.edge,
+  //     closing:edge,
+  //     odds:edge.odds,
+  //     oddsType:edge.oddsType,
+  //     oddsTypeCondition: edge.oddsTypeCondition || 0,
+  //     output:edge.output,
+  //     sport: edge.sportId,
+  //     status: 1,
+  //     user: EDGEBET_USER_ID,
+  //     tradeId: edge._id
+  //   }
+  //   const ref = firebase.database().ref('usertrades').push()
+  //   return firebase.database().ref().update({
+  //   [`usertrade-keys/${EDGEBET_USER_ID}/${ref.key}`]: true,
+  //   [`usertrades/${ref.key}`]: usertrade
+  // })
 
 }
 
