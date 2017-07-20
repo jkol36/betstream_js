@@ -9,7 +9,7 @@ const request = require('superagent').agent()
 export function getLinkForMatch(homeTeam, awayTeam) {
   console.log('finding link for match', homeTeam, awayTeam)
   return new Promise((resolve, reject) => {
-    let url = `https://sports.bovada.lv/services/search/search?q=${homeTeam}+${awayTeam}&type=sport&json=true&number=5`
+    let url = `https://sports.bovada.lv/services/search/search?q=${homeTeam.split(' ').join('%20')}+${awayTeam.split(' ').join('%20')}&type=sport&json=true&number=5`
     fetch(url, { headers })
       .then(res => res.json())
       .then(json => {
